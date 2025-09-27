@@ -1,11 +1,17 @@
 #include <Arduino.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 #include <NTC_Thermistor.h> // Need to download manually cuz the library manager one isn't patched
 #include "Utility.h"
 
 #define NullFunc []() {}
+#define UIUseSerial 1
+
+#if (!UIUseSerial)
+
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#endif
 
 enum class Status
 {
@@ -32,7 +38,9 @@ double TargetTemperatureCelsius = 50.0;
 Status HeaterStatus = Status::OFF;
 uint16 AutoCloseAfterMinutes = 0;
 
-Adafruit_SSD1306 Screen = Adafruit_SSD1306(128, 64, &Wire, -1);
+#if (!UIUseSerial)
+Adafruit_SSD1306 Screen = Adafruit_SSD1306(128, 64, &Wire, 4);
+#endif
 
 const String CurrentTemperatureString = "Cur.:%c%s C";
 const String CurrentStatusString = "Stat.:%c%s";
@@ -92,11 +100,13 @@ void setup()
 
 	Serial.begin(9600);
 
-	if (!Screen.begin(SSD1306_SWITCHCAPVCC, 0x7E))
+#if (!UIUseSerial)
+	if (!Screen.begin(SSD1306_SWITCHCAPVCC, 0x3C))
 	{
 		Serial.println("Bad screen");
 		while ((volatile int)1);
 	}
+#endif
 }
 void loop()
 {
@@ -111,7 +121,7 @@ void loop()
 	if (aPressed || bPressed)
 		HandleButton(aPressed);
 
-	delay(100);
+	delay(300);
 }
 
 static inline void UpdateHeater()
@@ -147,6 +157,7 @@ static inline void UpdateDisplay()
 	FormatString(formatted[2], Lines[2], GetSelectChar(2), FormatFloat(TargetTemperatureCelsius, 1).c_str());
 	FormatString(formatted[3], Lines[3], GetSelectChar(3), AutoCloseAfterMinutes);
 
+#if (!UIUseSerial)
 	for (int i = 0, cursorY = 1; i < 4; cursorY += 16, i++)
 	{
 		Screen.setCursor(1, cursorY);
@@ -155,6 +166,18 @@ static inline void UpdateDisplay()
 		Screen.println(formatted[i]);
 	}
 	Screen.display();
+#else
+	//static uint16 lastOperatingLineIndex = 0;
+
+	//if (lastOperatingLineIndex == CurrentOperatingLineIndex) 
+	//	return;
+	for (int i = 0; i < 4; i++)
+	{
+		Serial.println(formatted[i]);
+	}
+	Serial.println();
+	//lastOperatingLineIndex = CurrentOperatingLineIndex;
+#endif
 }
 static inline void HandleButton(bool isA)
 {
