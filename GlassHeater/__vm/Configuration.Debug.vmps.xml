@@ -1,0 +1,6 @@
+<VisualMicro>
+  <Program Name="GlassHeater" Ext=".ino" Location="C:\Users\tgg\source\repos\GlassHeater\GlassHeater">
+    <Debug />
+    <Compile ConfigurationExtraFlagsProject="" />
+  </Program>
+</VisualMicro>

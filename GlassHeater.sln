@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GlassHeater", "GlassHeater\GlassHeater.vcxproj", "{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM.Build.0 = Debug|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM.Deploy.0 = Debug|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM64.Build.0 = Debug|ARM64
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM.ActiveCfg = Release|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM.Build.0 = Release|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM.Deploy.0 = Release|ARM
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM64.ActiveCfg = Release|ARM64
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM64.Build.0 = Release|ARM64
+		{BE0078C6-5656-417D-B7E4-0A29EE7EE1CA}.Release|ARM64.Deploy.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D873B3A8-F989-4673-A709-30821F875E8E}
+	EndGlobalSection
+EndGlobal
