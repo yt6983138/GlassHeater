@@ -21,7 +21,7 @@
     <ClInclude Include="__vm\.GlassHeater.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\Source\repos\BoatClient\BoatClient\Utility.h">
+    <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
